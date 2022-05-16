@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- For Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    <!-- For FontAwesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/eaf13a0381.js"
       crossorigin="anonymous"
-    />
+    ></script>
+    <!-- For Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <!-- For this.codebase stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -28,11 +30,87 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+    <!-- 9AM -->
     <div class="container">
-      <!-- Timeblocks go here -->
+      <div id="9AM" class="row time-block">
+        <p class="hour">9 am</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 10am -->
+      <div id="10AM" class="row time-block">
+        <p class="hour">10 am</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 11 am -->
+      <div id="11AM" class="row time-block">
+        <p class="hour">11 am</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 12 pm -->
+      <div id="12PM" class="row time-block">
+        <p class="hour">12 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 1 pm -->
+      <div id="1PM" class="row time-block">
+        <p class="hour">1 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 2 pm -->
+      <div id="2PM" class="row time-block">
+        <p class="hour">2 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 3 pm -->
+      <div id="3PM" class="row time-block">
+        <p class="hour">3 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 4 pm -->
+      <div id="4PM" class="row time-block">
+        <p class="hour">4 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
+      <!-- 5 pm -->
+      <div id="5PM" class="row time-block">
+        <p class="hour">5 pm</p>
+        <p class="description flex-grow-1">text area</p>
+        <button class="saveBtn">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+      </div>
     </div>
 
+    <!-- For jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- For Moment -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- this.codebase JavaScript -->
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
