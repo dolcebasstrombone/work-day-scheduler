@@ -1,4 +1,4 @@
-//display current date and time at the top (use moment)
+//display current date and time at the top
 var currentTime = moment();
 $("#currentDay").text(currentTime.format("MMMM Do YYYY"));
 
@@ -10,8 +10,8 @@ $(".time-block").on("click", ".description", function () {
   textInputEl.addClass("descriptionInput flex-grow-1").val(text);
   textInputEl[0].setAttribute("data-hour", textHour);
   $(this).replaceWith(textInputEl);
-  //highlight text
-  textInputEl.trigger("focus"); //not working
+  textInputEl.trigger("focus");
+  textInputEl.select();
 });
 
 //on blur, turn back into p
@@ -30,7 +30,7 @@ $(".row").on("click", ".saveBtn", saveChanges);
 function saveChanges() {
   //get the array from storage
   var savedTasks = JSON.parse(localStorage.getItem("savedTasks")) || [];
-  //fidn this buttons row
+  //find this buttons row
   var rowNumber = this.dataset.row;
   //find matching text box
   var textBoxInRowEl = $(".description")[rowNumber];
@@ -54,14 +54,14 @@ function saveChanges() {
 function displaySavedChanges() {
   //get array from storage
   var savedTasks = JSON.parse(localStorage.getItem("savedTasks")) || [];
-  savedTasks.forEach(function(thisObject) {
-      //use thisObject.row to fine the row number
-      rowAttr = thisObject.row;
-      //use the row number to find the matching text box
-      var matchingTextBoxEl = $(".description")[rowAttr]
-      //display thisObject.description as the text content of the matching text box
-      matchingTextBoxEl.textContent = thisObject.description;
-  })
+  savedTasks.forEach(function (thisObject) {
+    //find the row number
+    rowAttr = thisObject.row;
+    //find the matching text box
+    var matchingTextBoxEl = $(".description")[rowAttr];
+    //display the appropriate text in the textbox
+    matchingTextBoxEl.textContent = thisObject.description;
+  });
 }
 displaySavedChanges();
 
@@ -69,30 +69,27 @@ displaySavedChanges();
 function timeColorCode() {
   //array of each row element
   var textBoxElArray = Array.from($(".description"));
-
+  //for each row, check the class and change it if necessary
   textBoxElArray.forEach(function (timeRow) {
-    //pull the hour from the description class data
+    //pull the tasks assigned hour from the data class
     var taskMoment = moment().hour(timeRow.dataset.hour);
-    // console.log(currentTime);
-    // console.log(taskMoment);
-
     //if task is in the past, change the class to past
     if (
-      moment(taskMoment).isBefore(currentTime) &&
+      moment(currentTime, "hour").isAfter(taskMoment, "hour") &&
       !timeRow.classList.contains("past")
     ) {
       timeRow.setAttribute("class", "description past flex-grow-1");
     }
-    //if task is now, change the class to present ------------------------------------TODO not working, fix compare condition
+    //if task is now, change the class to present
     if (
-      moment(taskMoment).isSame(currentTime, "hour") &&
+      moment(currentTime, "hour").isSame(taskMoment, "hour") &&
       !timeRow.classList.contains("present")
     ) {
       timeRow.setAttribute("class", "description present flex-grow-1");
     }
     //if class is in the future, change the class to future
     if (
-      moment(taskMoment).isAfter(currentTime) &&
+      moment(currentTime, "hour").isBefore(taskMoment, "hour") &&
       !timeRow.classList.contains("future")
     ) {
       timeRow.setAttribute("class", "description future flex-grow-1");
