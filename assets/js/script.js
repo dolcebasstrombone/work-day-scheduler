@@ -1,5 +1,5 @@
 //display current date and time at the top
-var currentTime = moment().hour(14);
+var currentTime = moment();
 $("#currentDay").text(currentTime.format("MMMM Do YYYY"));
 
 //on click, turn p into textarea
